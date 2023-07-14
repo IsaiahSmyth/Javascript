@@ -34,9 +34,7 @@ const MoreForm = (props) => {
     const submitForm = (e) => {
         // we must prevent the default refresh of the browser to keep our state from being reset
         e.preventDefault();
-        // setHasBeenSubmitted({
-        //     useState(true)
-        // })
+        setHasBeenSubmitted(true)
 
         // shorthand ES6 syntax for building an object
         const newUser = { firstName, lastName, email, password, confirmPassword };
