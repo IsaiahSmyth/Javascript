@@ -22,6 +22,8 @@ function App() {
 
     setItems(left.concat(right))
   }
+
+  
   return (
     <div className="App">
       <h1>To Do List</h1>
@@ -32,7 +34,7 @@ function App() {
       {
         items.map((thing, i) => {
           return (
-            <Todo_item key={i} id={i} removeFunction={removeItem} name={thing.iName}/>
+            <Todo_item key={i} id={i} removeFunction={removeItem} items={items} name={thing.iName} setItems={setItems}/>
           )
         })
       }

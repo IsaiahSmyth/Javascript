@@ -2,17 +2,28 @@ import React, { useState } from 'react'
 
 const Todo_item = props => {
 
-    const { name, id, removeFunction } = props
+    const { name, id, removeFunction, items, setItems } = props
+
+    const item = items[id]
 
 
-    const [line, setLine] = useState(false)
+    const handleClick = e => {
+        const itemTemp = {
+            iName : item.iName,
+            iChecked : e.target.checked 
+        }
+        const itemsTemp = [...items]
+        itemsTemp[id] = itemTemp
+        setItems(itemsTemp)
+    }
+
 
 
     return (
         <div >
-            <p className={line? "line":"no_line"}>
-            {name}
-            <input  onClick={() => setLine(id)} type="checkbox" />
+            <p className={ item.iChecked? "line":"no_line"}>
+            {item.iName}
+            <input  onChange={handleClick}  type="checkbox" />
             <button onClick={() => removeFunction(id)}>Delete</button>
             </p>
 

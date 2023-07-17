@@ -15,6 +15,7 @@ const Todo = props => {
 
         setItemData({
             iName: "",
+            iChecked: false,
         })
     }
 
